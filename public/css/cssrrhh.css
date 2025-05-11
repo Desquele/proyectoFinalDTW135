@@ -1,0 +1,173 @@
+.fechaTop{
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    font-size: 14px;
+}
+
+#titulo{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    margin-right: 100px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+#logo{
+    float: left;
+    height : 68px;
+    width : 61px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+
+.subtitulo1{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.estilo1{
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+    width: 60%;
+}
+
+.estilo2{
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+    width: 30%;
+    font-weight: normal; !important;
+}
+
+.tdBold{
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+}
+
+.tdNormal{
+    font-weight: normal;
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+}
+
+
+.trFila{
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+}
+
+.trFila2{
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+.fila1 td {
+    width: 45%; /* Ancho de las columnas en la primera fila */
+}
+.fila2 td {
+    width: 20%; /* Ancho de las columnas en la segunda fila */
+}
+
+
+
+.firma {
+    left: 0;
+    font-size: 20px;
+    margin-top: 200px;
+    text-align: left;
+    page-break-inside: avoid;
+}
+
+br[style] {
+    display:none;
+}
+
+
+
+/*** ESTILO TABLA 1 ***/
+
+#tablaFor {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#tablaFor td{
+    border: 1px solid #1E1E1E;
+    padding: 2px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#tablaFor th {
+    border: 1px solid #1E1E1E;
+    padding: 2px;
+    text-align: center;
+}
+
+#tablaFor th {
+    color: #1E1E1E;
+    text-align: left;
+    font-size: 14px;
+}
+
+
+/*** ESTILO TABLA 2 */
+
+#tablaFor2 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#tablaFor2 td {
+    border: 1px solid #1E1E1E;
+    padding: 2px;
+    text-align: center;
+    font-size: 14px;
+    border-top: none !important; /* Quitar subrayado arriba para celdas */
+}
+
+#tablaFor2 th {
+    border: 1px solid #1E1E1E;
+    padding: 2px;
+    text-align: center;
+    border-top: none !important; /* Quitar subrayado arriba para encabezados */
+    color: #1E1E1E;
+    text-align: left;
+    font-size: 13px;
+}
+
+
+
+.signature {
+    text-align: center;
+    margin-top: 50px;
+}
+.signature .line {
+    width: 200px;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+}
+.signature .name {
+    margin-top: 10px;
+    font-weight: normal;
+    font-family: 'Calibri', sans-serif;
+    font-size: 14px;
+}

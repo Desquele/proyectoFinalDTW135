@@ -1,0 +1,67 @@
+.fecha{
+    font-size: 16px;
+    margin-left: 17px;
+    text-align: justify;
+}
+
+#logo{
+    float: right;
+    height : 93px;
+    width : 88px;
+    margin-right: 20px;
+}
+
+#logoizq{
+    float: left;
+    height : 85px;
+    width : 80px;
+    margin-right: 20px;
+}
+
+#titulo{
+    text-align: center;
+    font-size: 22px;
+    font-weight: normal;"
+}
+
+#tablaFor {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#tablaFor td{
+    border: 1px solid #1E1E1E;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#tablaFor th {
+    border: 1px solid #1E1E1E;
+    padding: 8px;
+    text-align: center;
+}
+
+#tablaFor th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #1E1E1E;
+    text-align: left;
+    font-size: 14px;
+}
+
+.page_break {
+    page-break-before: always;
+}
+
+@page {
+    margin-top: 8mm;
+    margin-bottom: 10mm;
+    margin-left: 5mm;
+    margin-right: 7mm;
+}

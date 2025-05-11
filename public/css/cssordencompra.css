@@ -1,0 +1,17 @@
+@page {
+    margin-top: 38mm;
+    margin-bottom: 10mm;
+    margin-left: 5mm;
+    margin-right: 7mm;
+}
+
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+.page_break {
+    page-break-before: always;
+}

@@ -1,0 +1,51 @@
+body {
+    /* font-family: 'Calibri'; */
+    font-family:'Times New Roman', Times, serif;
+    /* font-family: Arial; */
+}
+
+
+
+#logo {
+    height: 80px;
+    width: 70px;
+}
+
+#titulo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+input {
+    border-width:1px;  border:none;
+}
+.ordenInput{
+    display: block;
+}
+.table-body{
+    width: 100%;
+}
+.table-head{
+    width: 100%;
+}
+.table-head td{
+    font-family:Arial, sans-serif; font-size:14px;
+}
+.table-body td{
+    font-family:Arial, sans-serif; font-size:14px;
+}
+
+.page_break {
+    page-break-before: always;
+}
+
+
