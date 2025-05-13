@@ -12,7 +12,7 @@ use App\Http\Controllers\Backend\Registro\RegistroController;
 
 
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
-
+use App\Http\Controllers\Backend\Tickets\TicketController;
 
 // --- LOGIN ---
 
@@ -57,4 +57,10 @@ Route::get('sin-permisos', [ControlController::class,'indexSinPermiso'])->name('
 
 Route::get('/admin/dashboard', [DashboardController::class,'vistaDashboard'])->name('admin.dashboard.index');
 
+
+// Tickets
+// Solo usuarios autenticados podrán acceder a esta ruta
+Route::middleware(['auth'])->group(function () {
+    Route::resource('tickets', TicketController::class)->names('tickets');
+});
 

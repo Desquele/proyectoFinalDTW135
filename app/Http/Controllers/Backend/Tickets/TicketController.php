@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Tickets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Ticket;
 
 // controlador de tickets
 class TicketController extends Controller
@@ -16,7 +17,7 @@ class TicketController extends Controller
         $tickets = Ticket::with('usuario')->get();
         
         // Retornamos la vista con los tickets
-        return view('frontend.tickets.index', compact('tickets'));
+        return view('backend.tickets.index', compact('tickets'));
     }
 
     // Mostramos el formulario para crear un nuevo ticket
