@@ -20,6 +20,6 @@ class Ticket extends Model
     // Relación con el modelo usuario
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'usuario_id');
+        return $this->belongsTo(\App\Models\Usuario::class, 'usuario_id');
     }
 }

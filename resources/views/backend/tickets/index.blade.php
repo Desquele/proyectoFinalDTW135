@@ -47,7 +47,7 @@
                         <tr>
                             <td>{{ $ticket->id }}</td>
                             <td>{{ $ticket->titulo }}</td>
-                            <td>{{ $ticket->usuario->name ?? 'N/A' }}</td>
+                            <td>{{ $ticket->usuario->nombre ?? 'N/A' }}</td>
                             <td>
                                 <span class="badge bg-{{ $ticket->estado == 'abierto' ? 'success' : 'secondary' }}">
                                     {{ ucfirst($ticket->estado) }}

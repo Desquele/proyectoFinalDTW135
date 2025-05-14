@@ -27,10 +27,10 @@ class TicketController extends Controller
         $this->authorize('crear.tickets');
 
         // Obtenemos todos los usuarios
-        $usuarios = User::all();
+        $usuarios = Usuario::all();
 
         // Mostramos la vista de creación
-        return view('frontend.tickets.create', compact('usuarios'));
+        return view('backend.tickets.create', compact('usuarios'));
     }
 
     // Guardar un nuevo ticket en la base de datos
@@ -38,23 +38,18 @@ class TicketController extends Controller
     {
         $this->authorize('crear.tickets');
 
-        // Realizamos una pequeña validación de los datos recibidos
+        // Realizamos una validación de los datos recibidos
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'usuario_id' => 'required|exists:users,id',
+            'usuario_id' => 'required|exists:usuarios,id',
             'estado' => 'required|in:abierto,cerrado',
         ]);
 
         // Creamos el ticket asociado (se debe de cambiar)
-        Ticket::create([
-            'titulo' => $validated['titulo'],
-            'descripcion' => $validated['descripcion'],
-            'usuario_id' => $validated['usuario_id'],
-            'estado' => 'abierto',
-        ]);
+        Ticket::create($validated);
 
-        // Informamos que todo está correcto
+        // redireccionamos e informamos que todo está correcto
         return redirect()->route('tickets.index')->with('success', 'Ticket creado correctamente.');
     }
 
@@ -85,7 +80,7 @@ class TicketController extends Controller
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'usuario_id' => 'required|exists:users,id',
+            'usuario_id' => 'required|exists:usuarios,id',
             'estado' => 'required|in:abierto,cerrado',
         ]);
 
