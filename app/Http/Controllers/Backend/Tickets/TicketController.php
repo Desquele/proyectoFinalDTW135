@@ -63,9 +63,9 @@ class TicketController extends Controller
         $this->authorize('editar.tickets', $ticket);
 
         // Obtenemos los usuarios
-        $usuarios = User::all();
+        $usuarios = Usuario::all();
 
-        return view('frontend.tickets.edit', compact('ticket', 'usuarios'));
+        return view('backend.tickets.edit', compact('ticket', 'usuarios'));
     }
 
     // Actualizamos un ticket existente
