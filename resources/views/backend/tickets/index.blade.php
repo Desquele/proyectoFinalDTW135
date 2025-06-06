@@ -34,7 +34,7 @@
                 <thead class="table-dark">
                     <!--Columnas-->
                     <tr>
-                        <th>ID</th>
+                        <th>ID Ticket</th>
                         <th>Título</th>
                         <th>Usuario</th>
                         <th>Estado</th>
