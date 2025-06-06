@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Crear Ticket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    @vite('resources/js/app.js')
 </head>
 <body>
 <div class="container mt-5">
@@ -73,5 +74,22 @@
         <a href="{{ route('tickets.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
+
+<!--JS-->
+<script>
+    // Cada vez que cambie el campo "titulo", lo guardamos
+    document.querySelector('#titulo').addEventListener('input', function() {
+      saveToLocal('titulo', this.value);
+    });
+
+    // Al cargar, rellenamos el campo con lo guardado
+    document.addEventListener('DOMContentLoaded', () => {
+      const tituloGuardado = getFromLocal('titulo');
+      if (tituloGuardado) {
+        document.querySelector('#titulo').value = tituloGuardado;
+      }
+    });
+  </script>
+
 </body>
 </html>
