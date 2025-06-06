@@ -20,10 +20,26 @@ class RolesSeeder extends Seeder
         $roleUsuario = Role::create(['name' => 'usuario']);
 
         // ROLES Y PERMISOS
-        Permission::create(['name' => 'sidebar.roles.y.permisos', 'description' => 'sidebar seccion roles y permisos'])->syncRoles($roleAdmin);
+        // Permisos para el admin
+        $adminPermissions = [
+            'sidebar.roles.y.permisos',
+            'sidebar.dashboard',
+            'crear.tickets',
+            'editar.tickets',
+            'ver.tickets',
+            'eliminar.tickets',
+        ];
 
+        foreach ($adminPermissions as $permission) {
+            Permission::firstOrCreate(['name' => $permission])
+                      ->syncRoles($roleAdmin);
+        }
+       
         // PERMISO PARA VISTA DASHBOARD
-        Permission::create(['name' => 'sidebar.dashboard', 'description' => 'sidebar dashboard'])->syncRoles($roleUsuario);
+        Permission::firstOrCreate(
+    ['name' => 'sidebar.dashboard', 'guard_name' => 'web'],
+    ['description' => 'sidebar dashboard'])->syncRoles($roleUsuario);
+
 
     }
 }
