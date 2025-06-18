@@ -7,101 +7,93 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Ticket;
 
-// controlador de tickets
 class TicketController extends Controller
 {
-    // Mostramos la lista de tickets
     public function index()
     {
-        // Obtenemos todos los tickets
         $tickets = Ticket::with('usuario')->get();
-        
-        // Retornamos la vista con los tickets
         return view('backend.tickets.index', compact('tickets'));
     }
 
-    // Mostramos el formulario para crear un nuevo ticket
     public function create()
     {
-        // Verificamos si hay permiso para crear tickets
         $this->authorize('crear.tickets');
-
-        // Obtenemos todos los usuarios
         $usuarios = Usuario::all();
-
-        // Mostramos la vista de creación
         return view('backend.tickets.create', compact('usuarios'));
     }
 
-    // Guardar un nuevo ticket en la base de datos
     public function store(Request $request)
     {
         $this->authorize('crear.tickets');
 
-        // Realizamos una validación de los datos recibidos
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
-            'descripcion' => 'required|string',
+            'descripcion' => 'required|string|min:10',
             'usuario_id' => 'required|exists:usuarios,id',
             'estado' => 'required|in:abierto,cerrado',
+        ], [
+            'titulo.required' => 'El título del ticket es obligatorio',
+            'titulo.max' => 'El título no puede tener más de 255 caracteres',
+            'descripcion.required' => 'La descripción es obligatoria',
+            'descripcion.min' => 'La descripción debe tener al menos 10 caracteres',
+            'usuario_id.required' => 'Debe seleccionar un usuario responsable',
+            'usuario_id.exists' => 'El usuario seleccionado no existe',
+            'estado.required' => 'Debe seleccionar un estado para el ticket',
+            'estado.in' => 'El estado debe ser "abierto" o "cerrado"',
         ]);
 
-        // Creamos el ticket asociado (se debe de cambiar)
         Ticket::create($validated);
 
-        // redireccionamos e informamos que todo está correcto
-        return redirect()->route('tickets.index')->with('success', 'Ticket creado correctamente.');
+        return redirect()->route('tickets.index')
+               ->with('success', 'Ticket creado correctamente.');
     }
 
-    // Mostramos formulario de edición para un ticket
     public function edit($id)
     {
-        // Buscamos el ticket y en caso de no encontrarlo, lanzamos el error 404
         $ticket = Ticket::findOrFail($id);
-
-
         $this->authorize('editar.tickets', $ticket);
-
-        // Obtenemos los usuarios
         $usuarios = Usuario::all();
-
-        return view('backend.tickets.edit', compact('ticket', 'usuarios'));
+        
+        return view('backend.tickets.edit', [
+            'ticket' => $ticket,
+            'usuarios' => $usuarios,
+            'errors' => session('errors')
+        ]);
     }
 
-    // Actualizamos un ticket existente
     public function update(Request $request, $id)
     {
-        // Buscamos el ticket y en caso de no encontrarlo, lanzamos el error 404
         $ticket = Ticket::findOrFail($id);
-
         $this->authorize('editar.tickets', $ticket);
 
-        // Validamos los dstos del formulario
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
-            'descripcion' => 'required|string',
+            'descripcion' => 'required|string|min:10',
             'usuario_id' => 'required|exists:usuarios,id',
             'estado' => 'required|in:abierto,cerrado',
+        ], [
+            'titulo.required' => 'El título del ticket es obligatorio',
+            'titulo.max' => 'El título no puede tener más de 255 caracteres',
+            'descripcion.required' => 'La descripción es obligatoria',
+            'descripcion.min' => 'La descripción debe tener al menos 10 caracteres',
+            'usuario_id.required' => 'Debe seleccionar un usuario responsable',
+            'usuario_id.exists' => 'El usuario seleccionado no existe',
+            'estado.required' => 'Debe seleccionar un estado para el ticket',
+            'estado.in' => 'El estado debe ser "abierto" o "cerrado"',
         ]);
 
-        // Actualizamos el ticket con los datos validados
         $ticket->update($validated);
 
-        // Informamos que se realizó correctamente
-        return redirect()->route('tickets.index')->with('success', 'Ticket actualizado correctamente.');
+        return redirect()->route('tickets.index')
+               ->with('success', 'Ticket actualizado correctamente.');
     }
 
-    // Eliminar un ticket
     public function destroy($id)
     {
-        // Buscamos el ticket y en caso de no encontrarlo, lanzamos el error 404
         $ticket = Ticket::findOrFail($id);
-
         $this->authorize('eliminar.tickets', $ticket);
-
-        // borramos el ticket
         $ticket->delete();
-
-        return redirect()->route('tickets.index')->with('success', 'Ticket eliminado correctamente.');
+        return redirect()->route('tickets.index')
+               ->with('success', 'Ticket eliminado correctamente.');
     }
 }
