@@ -1,66 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Proyecto Final - Aplicación Web con Laravel 12 - DTW135 GT02
 
-## About Laravel
+Integrantes:  
+- Douglas Enrique Siguenza Quele  
+- Salvador Isaías Juárez Alcántara  
+- Guillermo Alexander Rodríguez Cortez  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Asegúrate de tener instalado lo siguiente:
 
-## Learning Laravel
+1. **Herd** → [Descargar Herd](https://herd.laravel.com/)  
+2. **Git** → [Descargar Git](https://git-scm.com/)  
+3. **Node.js y npm** → [Descargar Node.js](https://nodejs.org/)  
+4. **MySQL Workbench** u otro cliente de base de datos  
+5. **Visual Studio Code** u otro IDE compatible  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Clonación del Proyecto
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd nombre_del_proyecto
+```
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Instalación de Dependencias
 
-### Premium Partners
+### Dependencias PHP (Laravel)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+composer install
+```
 
-## Contributing
+### Dependencias de Node
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+npm install
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Configuración del Entorno
 
-## Security Vulnerabilities
+1. Crear un archivo `.env` a partir de `.env.example`
+2. Configurar la base de datos:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_base_datos
+DB_USERNAME=root
+DB_PASSWORD=1234
+```
 
-## License
+3. Generar clave de la aplicación:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+---
+
+## Migraciones y Datos
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+---
+
+## Levantar el Proyecto
+
+Opción 1: Usar Herd (recomendado)  
+Opción 2: Servidor embebido de PHP
+
+```bash
+php -S 127.0.0.1:8081 -t public
+```
+
+Luego abrir en el navegador:
+
+```
+http://127.0.0.1:8081
+```
+
+---
+
+## Acceso al Proyecto
+
+Puedes acceder usando:
+
+- **Usuario:** `usuario`
+- **Contraseña:** `1234`
+- **Usuario:** `admin`
+- **Contraseña:** `1234`
+
+---
+
+## Funcionalidades Implementadas
+
+### Lista y creación de Tickets
+
+- Creación de tickets.
+- Gestión de tickets para cada usuario
+
+![creación](![image](https://github.com/user-attachments/assets/d46fca37-6712-4b35-ab62-92215e36b16f)
+)
+
+![Lista](![image](https://github.com/user-attachments/assets/0decd8fb-3cad-421c-b6c4-c9264a03a503)
+)
+
+![edición](![image](https://github.com/user-attachments/assets/9b4cdcba-9549-4c08-a132-36901b2d7a02)
+)
+
+---
+
+### Visualización de tipo de cambios de monedas
+
+- Lista que proporciona el valor de 1 USD convertido a múltiples monedas
+
+![monedas](![image](https://github.com/user-attachments/assets/9ab68ada-9510-465d-bd52-be37fd57099c)
+)
+
