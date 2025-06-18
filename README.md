@@ -112,13 +112,13 @@ Puedes acceder usando:
 - Gestión de tickets para cada usuario
 
 ![creación](![image](https://github.com/user-attachments/assets/d46fca37-6712-4b35-ab62-92215e36b16f)
-)
+
 
 ![Lista](![image](https://github.com/user-attachments/assets/0decd8fb-3cad-421c-b6c4-c9264a03a503)
-)
+
 
 ![edición](![image](https://github.com/user-attachments/assets/9b4cdcba-9549-4c08-a132-36901b2d7a02)
-)
+
 
 ---
 
@@ -127,5 +127,5 @@ Puedes acceder usando:
 - Lista que proporciona el valor de 1 USD convertido a múltiples monedas
 
 ![monedas](![image](https://github.com/user-attachments/assets/9ab68ada-9510-465d-bd52-be37fd57099c)
-)
+
 
